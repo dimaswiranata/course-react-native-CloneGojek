@@ -7,6 +7,7 @@ import {
   ScrollView
 } from 'react-native';
 import GopayFeature from '../../../components/molecules/GopayFeature';
+import { withNavigation } from 'react-navigation';
 
 class HomeGoPay extends Component {
   render(){
@@ -17,7 +18,7 @@ class HomeGoPay extends Component {
           <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white'}}>Rp. 50.000</Text>
         </View>
         <View  style={{flexDirection: 'row', paddingTop: 20, paddingBottom: 14, backgroundColor: '#2F65BD', borderBottomLeftRadius: 4, borderBottomRightRadius: 4}}>
-          <GopayFeature title='pay' source={require('../../../assets/icon/pay.png')}/>
+          <GopayFeature title='pay' source={require('../../../assets/icon/pay.png')} onPress={() => this.props.navigation.navigate('ScanQRCode')}/>
           <GopayFeature title='Nearby' source={require('../../../assets/icon/nearby.png')}/>
           <GopayFeature title='Top Up' source={require('../../../assets/icon/topup.png')}/>
           <GopayFeature title='More' source={require('../../../assets/icon/more.png')}/>
@@ -27,4 +28,4 @@ class HomeGoPay extends Component {
   }
 }
 
-export default HomeGoPay;
+export default withNavigation(HomeGoPay);
